@@ -95,7 +95,7 @@ do
     exit 1
   fi
   
-  # # Extract the number of outputs (vout length)
+  # Extract the number of outputs (vout length)
   vout_count=$(echo $result | jq '.vout | length')
   vout_counts=$((vout_counts + vout_count))  
 
