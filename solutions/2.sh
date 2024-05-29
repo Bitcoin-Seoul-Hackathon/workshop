@@ -41,7 +41,7 @@ output=$(curl -s https://bitcoin-mainnet.g.allthatnode.com/archive/json_rpc \
 result=$(echo $output | jq -r '.result')
 error=$(echo $output | jq -r '.error')
 
-if [ $error != null ]
+if [ "$error" != "null" ]
 then
   echo "Something went wrong: $error"
   exit 1
