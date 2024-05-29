@@ -109,3 +109,5 @@ do
 done
 
 printf "Total vout counts: $vout_counts\n"
+
+printf "=========================================\n"
