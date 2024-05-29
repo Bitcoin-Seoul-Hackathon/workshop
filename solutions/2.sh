@@ -31,14 +31,13 @@ Signature: $signature
 output=$(curl -s https://bitcoin-mainnet.g.allthatnode.com/archive/json_rpc \
 --request POST \
 --header "Content-Type: text/plain" \
---data '{ 
-  "jsonrpc": "1.0", 
-  "id": "0", 
-  "method": "verifymessage", 
-  "params": ["1E9YwDtYf9R29ekNAfbV7MvB4LNv7v3fGa","HCsBcgB+Wcm8kOGMH8IpNeg0H4gjCrlqwDf/GlSXphZGBYxm0QkKEPhh9DTJRp2IDNUhVr0FhP9qCqo2W0recNM=","1E9YwDtYf9R29ekNAfbV7MvB4LNv7v3fGa"] 
-}')
+--data "{ 
+  \"jsonrpc\": \"1.0\", 
+  \"id\": \"0\", 
+  \"method\": \"verifymessage\", 
+  \"params\": [\"$address\",\"$signature\",\"$message\"] 
+}")
 
-# Extract 'result' and 'error' using jq
 result=$(echo $output | jq -r '.result')
 error=$(echo $output | jq -r '.error')
 
